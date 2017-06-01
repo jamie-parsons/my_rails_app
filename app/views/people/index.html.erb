@@ -1,12 +1,17 @@
 <h2> People </h2>
   <hr />
-  <%= link_to 'New contact', new_person_path %>
-  <% @people.each do |person| %>
-  <h3><%= person.name %></h3>
-  <!-- <h4><%= person.age %></h4>
-  <h4><%= person.hair_color %></h4>
-  <h4><%= person.eye_color %></h4>
-  <h4><%= person.gender %></h4>
-  <h4><%= person.alive %></h4> -->
-  <%= link_to 'Show contact', person_path(person) %>
-<% end %>
+  <% if @people.empty? %>
+    <h3>No people found, please create someone!</h3>
+  <% else %>
+    <%= link_to 'New', new_person_path %>
+    <% @people.each do |person| %>
+    <h3><%= person.name %></h3>
+    <!-- <h4><%= person.age %></h4>
+    <h4><%= person.hair_color %></h4>
+    <h4><%= person.eye_color %></h4>
+    <h4><%= person.gender %></h4>
+    <h4><%= person.alive %></h4> -->
+    <%= link_to 'Show person', person_path(person) %>
+    <%= link_to 'Destroy person', person, method: :delete %>
+    <% end %>
+  <% end %>

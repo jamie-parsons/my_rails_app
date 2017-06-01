@@ -3,7 +3,6 @@
   <% if @people.empty? %>
     <h3>No people found, please create someone!</h3>
   <% else %>
-    <%= link_to 'New', new_person_path %>
     <% @people.each do |person| %>
     <h3><%= person.name %></h3>
     <!-- <h4><%= person.age %></h4>
@@ -15,3 +14,4 @@
     <%= link_to 'Destroy person', person, method: :delete %>
     <% end %>
   <% end %>
+  <%= link_to 'New', new_person_path %>
